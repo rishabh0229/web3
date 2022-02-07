@@ -1,0 +1,21 @@
+{
+  "name": "new",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bitcore-mnemonic": "^8.25.25",
+    "bull": "^4.5.0",
+    "dotenv": "^16.0.0",
+    "ethereumjs-wallet": "^1.0.2",
+    "express": "^4.17.2",
+    "web3": "^1.7.0"
+  }
+}
