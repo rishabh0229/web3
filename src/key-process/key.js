@@ -36,3 +36,26 @@ module.exports = {
     toEther,
     toWei
 }
+
+let balance = await Web3Helper.getBalance(addressETH)
+
+console.log(balance + " ETH");
+
+let gasPrice = await Web3Helper.getCurrentGasPrices();
+
+console.log("gasPrice:", gasPrice);
+
+let getBlocks = await Web3Helper.getBlock(10125842)
+
+// The format which contains capital letters is called checksum format
+if (getBlocks.hasOwnProperty('transactions')) {
+    for (let i = 0; i < getBlocks.transactions.length; i++) {
+        let details = await Web3Helper.getTransaction(getBlocks.transactions[i])
+        if (details.hasOwnProperty('to') && details.to != null) {
+            if (details.to.toLowerCase() === addressETH.toLowerCase()) {
+                let val = await Web3Helper.valFromWei(details.value, 'ether');
+                console.log('val', val)
+            }
+        }
+    }
+}
